@@ -1,0 +1,46 @@
+{
+  "applinks":{
+    "apps":[
+       
+    ],
+    "details":[
+      {
+        "appIDs":[
+          "JRRJW9HJ8D.com.epicplays.development"
+        ],
+        "components":[
+          {
+            "/":"*"
+          }
+        ]
+      },
+      {
+        "appIDs":[
+          "JRRJW9HJ8D.com.epicplays.staging"
+        ],
+        "components":[
+          {
+            "/":"*"
+          }
+        ]
+      },
+      {
+        "appIDs":[
+          "JRRJW9HJ8D.com.epicplays"
+        ],
+        "components":[
+          {
+            "/":"*"
+          }
+        ]
+      }
+    ],
+    "webcredentials": {
+    "apps": [
+      "JRRJW9HJ8D.com.yourcompany.yourapp.dev",
+      "JRRJW9HJ8D.com.yourcompany.yourapp.staging",
+      "JRRJW9HJ8D.com.yourcompany.yourapp"
+    ]
+  }
+}
+}

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EpicPlays - Open App</title>
+    <meta name="description" content="Get the best experience with the EpicPlays mobile app">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="EpicPlays - Open App">
+    <meta property="og:description" content="Get the best experience with the EpicPlays mobile app">
+    <meta property="og:url" content="https://myapps.co">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 48px 32px;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 32px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding: 16px 24px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #3b82f6;
+        }
+
+        .status.success {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+
+        .status.warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-top: 2px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 8px;
+            min-width: 200px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .button.secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .button.secondary:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .app-stores {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+
+        .store-badge {
+            height: 56px;
+            transition: transform 0.3s ease;
+        }
+
+        .store-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(0, 0, 0, 0.1);
+            margin: 32px 0;
+        }
+
+        .footer-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #667eea;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            .container {
+                padding: 32px 24px;
+                margin: 16px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .button {
+                min-width: 160px;
+                padding: 14px 24px;
+            }
+
+            .app-stores {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .container {
+                background: rgba(30, 30, 30, 0.95);
+                border-color: rgba(255, 255, 255, 0.1);
+            }
+
+            h1 {
+                color: #f9fafb;
+            }
+
+            .subtitle {
+                color: #9ca3af;
+            }
+
+            .footer-link {
+                color: #9ca3af;
+            }
+
+            .button.secondary {
+                background: rgba(55, 65, 81, 0.9);
+                color: #e5e7eb;
+                border-color: rgba(156, 163, 175, 0.3);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">MA</div>
+        <h1>Opening MyApps</h1>
+        <p class="subtitle">Get the best experience with our mobile app</p>
+        
+        <div id="status" class="status">
+            <div class="spinner"></div>
+            <span>Attempting to open app...</span>
+        </div>
+
+        <div id="actions" class="hidden">
+            <a href="#" id="openApp" class="button">
+                📱 Open App
+            </a>
+            <a href="https://EpicPlays.co" class="button secondary">
+                🌐 Continue on Web
+            </a>
+        </div>
+
+        <div id="ios-store" class="hidden">
+            <p style="margin-bottom: 24px; color: #666;">App not installed? Download from the App Store:</p>
+            <div class="app-stores">
+                <a href="https://apps.apple.com/app/your-app-id" target="_blank">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+                         alt="Download on App Store" class="store-badge">
+                </a>
+            </div>
+        </div>
+
+        <div id="android-store" class="hidden">
+            <p style="margin-bottom: 24px; color: #666;">App not installed? Download from Google Play:</p>
+            <div class="app-stores">
+                <a href="https://play.google.com/store/apps/details?id=your.package.name" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                         alt="Get it on Google Play" class="store-badge">
+                </a>
+            </div>
+        </div>
+
+        <div id="fallback" class="hidden">
+            <p style="margin-bottom: 24px; color: #666;">Don't have the app yet? Download it now:</p>
+            <div class="app-stores">
+                <a href="https://apps.apple.com/app/your-app-id" target="_blank">
+                    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+                         alt="Download on App Store" class="store-badge">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=your.package.name" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                         alt="Get it on Google Play" class="store-badge">
+                </a>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+        <a href="https://EpicPlays.co" class="footer-link">← Back to EpicPlays.co</a>
+    </div>
+
+    <script>
+        class DeepLinkHandler {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.detectPlatform();
+                this.handleDeepLink();
+                this.setupEventListeners();
+            }
+
+            detectPlatform() {
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                
+                this.isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+                this.isAndroid = /android/i.test(userAgent);
+                this.isMobile = this.isIOS || this.isAndroid;
+                
+                // Desktop fallback
+                if (!this.isMobile) {
+                    this.showDesktopFallback();
+                    return;
+                }
+            }
+
+            handleDeepLink() {
+                const path = window.location.pathname;
+                const searchParams = new URLSearchParams(window.location.search);
+                
+                // Build deep link URLs based on your structure
+                // Convert https://myapps.co/home?id=djnsnkien3inin3i to myapps://home?id=djnsnkien3inin3i
+                const customSchemeUrl = `myapps://${path.substring(1)}${this.buildQueryString(searchParams)}`;
+                const universalLinkUrl = window.location.href;
+
+                this.attemptDeepLink(customSchemeUrl, universalLinkUrl);
+            }
+
+            buildQueryString(searchParams) {
+                const params = new URLSearchParams(searchParams);
+                return params.toString() ? `?${params.toString()}` : '';
+            }
+
+            attemptDeepLink(customSchemeUrl, universalLinkUrl) {
+                let attempted = false;
+
+                // iOS handling
+                if (this.isIOS) {
+                    // Try universal link first on iOS 9+
+                    if (this.isIOS9Plus()) {
+                        window.location.href = universalLinkUrl;
+                        attempted = true;
+                    } else {
+                        // Fallback to custom scheme for older iOS
+                        window.location.href = customSchemeUrl;
+                        attempted = true;
+                    }
+                }
+
+                // Android handling
+                if (this.isAndroid) {
+                    // Try intent URL first
+                    const intentUrl = `intent://${customSchemeUrl.replace('myapps://', '')}#Intent;scheme=myapps;package=com.myapps;end`;
+                    
+                    try {
+                        window.location.href = intentUrl;
+                        attempted = true;
+                    } catch (e) {
+                        // Fallback to custom scheme
+                        window.location.href = customSchemeUrl;
+                        attempted = true;
+                    }
+                }
+
+                // Set timeout to show fallback options
+                setTimeout(() => {
+                    this.showFallbackOptions();
+                }, attempted ? 2500 : 1000);
+
+                // Update status
+                if (attempted) {
+                    this.updateStatus('success', '✅ Opening app...');
+                } else {
+                    this.updateStatus('warning', '⚠️ Unable to detect mobile device');
+                }
+            }
+
+            isIOS9Plus() {
+                const match = navigator.userAgent.match(/OS (\d+)_(\d+)_?(\d+)?/);
+                if (match) {
+                    const version = parseInt(match[1], 10);
+                    return version >= 9;
+                }
+                return true; // Assume modern iOS if can't detect
+            }
+
+            updateStatus(type, message) {
+                const statusEl = document.getElementById('status');
+                statusEl.className = `status ${type}`;
+                statusEl.innerHTML = type === 'success' ? 
+                    `<span style="color: #10b981;">✅</span> <span>${message}</span>` :
+                    `<span style="color: #f59e0b;">⚠️</span> <span>${message}</span>`;
+            }
+
+            showFallbackOptions() {
+                document.getElementById('status').classList.add('hidden');
+                document.getElementById('actions').classList.remove('hidden');
+                
+                // Show appropriate store download based on platform
+                if (this.isIOS) {
+                    document.getElementById('ios-store').classList.remove('hidden');
+                } else if (this.isAndroid) {
+                    document.getElementById('android-store').classList.remove('hidden');
+                } else {
+                    // Desktop - show both stores
+                    document.getElementById('fallback').classList.remove('hidden');
+                }
+            }
+
+            showDesktopFallback() {
+                this.updateStatus('warning', '💻 Desktop detected - redirecting to web');
+                
+                setTimeout(() => {
+                    window.location.href = 'https://EpicPlays.co';
+                }, 2000);
+            }
+
+            setupEventListeners() {
+                document.getElementById('openApp').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.handleDeepLink();
+                });
+
+                // Handle visibility change (user returns to browser)
+                document.addEventListener('visibilitychange', () => {
+                    if (!document.hidden) {
+                        setTimeout(() => {
+                            this.showFallbackOptions();
+                        }, 100);
+                    }
+                });
+
+                // Handle page focus (alternative to visibility change)
+                window.addEventListener('focus', () => {
+                    setTimeout(() => {
+                        this.showFallbackOptions();
+                    }, 100);
+                });
+            }
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new DeepLinkHandler();
+        });
+
+        // Handle page load
+        window.addEventListener('load', () => {
+            // Preload store badge images
+            const appStoreImg = new Image();
+            appStoreImg.src = 'https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg';
+            
+            const playStoreImg = new Image();
+            playStoreImg.src = 'https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg';
+        });
+    </script>
+</body>
+</html>

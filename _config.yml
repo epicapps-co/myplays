@@ -1,0 +1,15 @@
+# GitHub Pages configuration
+title: Your App Deep Links
+description: Deep link configuration for your Flutter app
+
+# Include the .well-known directory
+include:
+  - .well-known
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
