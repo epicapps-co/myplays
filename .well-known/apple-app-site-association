@@ -37,9 +37,9 @@
     ],
     "webcredentials": {
     "apps": [
-      "JRRJW9HJ8D.com.yourcompany.yourapp.dev",
-      "JRRJW9HJ8D.com.yourcompany.yourapp.staging",
-      "JRRJW9HJ8D.com.yourcompany.yourapp"
+      "JRRJW9HJ8D.com.epicplays.development",
+      "JRRJW9HJ8D.com.epicplays.staging",
+      "JRRJW9HJ8D.com.epicplays"
     ]
   }
 }
